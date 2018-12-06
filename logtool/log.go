@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-func InitLogger(lpName string, isDebug bool) (log *zap.Logger, err error) {
+func InitZapLogger(lpName string, isDebug bool) (log *zap.Logger, err error) {
 	path, err := os.Getwd()
 	if err != nil {
 		panic(err)
