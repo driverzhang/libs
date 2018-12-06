@@ -8,7 +8,9 @@ import (
 	"path/filepath"
 )
 
-func InitZapLogger(lpName string, isDebug bool) (log *zap.Logger, err error) {
+var ZapLog *zap.Logger
+
+func InitZapLogger(lpName string, isDebug bool) {
 	path, err := os.Getwd()
 	if err != nil {
 		panic(err)
@@ -34,12 +36,10 @@ func InitZapLogger(lpName string, isDebug bool) (log *zap.Logger, err error) {
 		cfg.EncoderConfig = zap.NewProductionEncoderConfig()
 	}
 	cfg.EncoderConfig.EncodeTime = timeEncoder
-	log, err = cfg.Build()
+	ZapLog, err = cfg.Build()
 	if err != nil {
 		panic(err)
-		return
 	}
-	return
 }
 func timeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 	enc.AppendString("[" + t.Format("2006-01-02 15:04:05") + "]")
