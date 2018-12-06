@@ -16,7 +16,7 @@ import (
 func QuitSignal(quitFunc func()) {
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT, syscall.SIGSTOP)
-	fmt.Printf("server start success pid:%d", os.Getpid())
+	fmt.Printf("server start success pid:%d\n", os.Getpid())
 	for s := range c {
 		switch s {
 		case syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT:
