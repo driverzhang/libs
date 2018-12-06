@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 
-var ZapLog *zap.Logger
+var Zap *zap.Logger
 
 func InitZapLogger(lpName string, isDebug bool) {
 	path, err := os.Getwd()
@@ -36,7 +36,7 @@ func InitZapLogger(lpName string, isDebug bool) {
 		cfg.EncoderConfig = zap.NewProductionEncoderConfig()
 	}
 	cfg.EncoderConfig.EncodeTime = timeEncoder
-	ZapLog, err = cfg.Build()
+	Zap, err = cfg.Build()
 	if err != nil {
 		panic(err)
 	}

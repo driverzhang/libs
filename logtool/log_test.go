@@ -7,13 +7,10 @@ import (
 )
 
 func TestInitLogger(t *testing.T) {
-	logTool, err := InitZapLogger("logtool.log", true)
-	if err != nil {
-		panic(err)
-	}
+InitZapLogger("logtool.log", true)
 	d := []string{" info", " error", " debug", " fatal",}
-	logTool.Info("info:", zap.Error(errors.New("123123")))
-	logTool.Error("info:", zap.String("s", d[1]))
-	logTool.Debug("info:", zap.String("s", d[2]))
-	logTool.Fatal("info:", zap.String("s", d[3]))
+	Zap.Info("info:", zap.Error(errors.New("123123")))
+	Zap.Error("info:", zap.String("s", d[1]))
+	Zap.Debug("info:", zap.String("s", d[2]))
+	Zap.Fatal("info:", zap.String("s", d[3]))
 }
