@@ -7,7 +7,7 @@ import (
 )
 
 func TestInitLogger(t *testing.T) {
-	logTool, err := InitLogger("logtool.log", true)
+	logTool, err := InitZapLogger("logtool.log", true)
 	if err != nil {
 		panic(err)
 	}
