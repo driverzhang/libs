@@ -9,3 +9,12 @@
 		fmt.Println("退出程序")
 	})
 ```
+### zap 日志库相关
+```base
+InitZapLogger("logtool.log", true)
+	d := []string{" info", " error", " debug", " fatal",}
+	Zap.Info("info:", zap.Error(errors.New("123123")))
+	Zap.Error("info:", zap.String("s", d[1]))
+	Zap.Debug("info:", zap.String("s", d[2]))
+	Zap.Fatal("info:", zap.String("s", d[3]))
+```
